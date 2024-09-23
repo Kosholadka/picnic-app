@@ -8,6 +8,7 @@ export type CartProduct = ProductType & { quantity: number }
 type State = {
   userId: string | null
   cartItems: CartProduct[]
+  deliveryCosts: number
 }
 
 type Action = {
@@ -35,6 +36,7 @@ export const useCartStore = create(
       return {
         cartItems: [],
         userId: null,
+        deliveryCosts: 555,
         addItemToCart: item => {
           const itemExists = get().cartItems.find(
             cartItem => cartItem.product_id === item.product_id
